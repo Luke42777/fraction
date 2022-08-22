@@ -9,7 +9,6 @@
 
 
 Fraction::Fraction(int nom,int denom){
-	std::cout << "Constructed";
 	mNominator = nom;
 	mDenominator = denom;
 }

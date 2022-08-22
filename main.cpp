@@ -12,7 +12,7 @@ using namespace std;
 
 int main(){
 Fraction fraction(2,3);
-cout << "main";
+
 }
 
 
