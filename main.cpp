@@ -11,8 +11,14 @@ using namespace std;
 
 
 int main(){
-Fraction fraction(2,3);
+Fraction frac1(2,3);
+Fraction frac2(2,3);
+Fraction frac3;
+frac3 = frac1.Divide(frac2);
 
+cout << frac3;
 }
+
+
 
 
