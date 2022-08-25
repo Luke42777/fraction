@@ -1,9 +1,4 @@
-/*
- * fraction.cpp
- *
- *  Created on: 22 Aug 2022
- *      Author: Lukasz
- */
+
 #include "fraction.h"
 
 Fraction::Fraction(int nom,int denom){
@@ -14,10 +9,26 @@ Fraction::Fraction(int nom,int denom){
 Fraction::Fraction():Fraction(0,1){}
 
 Fraction Fraction::Add(const Fraction& other) const{
-	return Fraction(this->mNominator + other.mNominator, this->mDenominator + other.mDenominator );
+	//reducing to a common denominator for calculation
+	int commonDenominator = this->mDenominator * other.mDenominator;
+	//defining two Fraction objects ( as we don't want to change data)
+	Fraction first;
+	Fraction second;
+	Fraction result;
+	first = Fraction(this->mNominator * (commonDenominator / this->mDenominator),commonDenominator);
+	second = Fraction(other.mNominator * (commonDenominator / other.mDenominator),commonDenominator);
+	return result.Simplify(Fraction(first.mNominator + second.mNominator,commonDenominator));
 }
 Fraction Fraction::Subtract(const Fraction& other) const{
-	return Fraction(this->mNominator - other.mNominator, this->mDenominator - other.mDenominator );
+	//reducing to a common denominator for calculation
+		int commonDenominator = this->mDenominator * other.mDenominator;
+		//defining two Fraction objects ( as we don't want to change data)
+		Fraction first;
+		Fraction second;
+		Fraction result;
+		first = Fraction(this->mNominator * (commonDenominator / this->mDenominator),commonDenominator);
+		second = Fraction(other.mNominator * (commonDenominator / other.mDenominator),commonDenominator);
+		return result.Simplify(Fraction(first.mNominator - second.mNominator,commonDenominator));
 }
 Fraction Fraction::Multiply(const Fraction& other) const{
 	return Fraction(this->mNominator * other.mNominator, this->mDenominator * other.mDenominator );
@@ -59,6 +70,7 @@ Fraction Fraction::Simplify(const Fraction& frac){
 	            result.mNominator *= signToReturn;// in case 'frac' is negative number
 	            return result;
 	    	}
+
 	    }
 }
 

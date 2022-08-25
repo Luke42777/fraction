@@ -5,11 +5,11 @@ using namespace std;
 
 
 int main(){
-	Fraction frac1(2,8);
-	Fraction frac2(-4,8);
+	Fraction frac1(1,2);
+	Fraction frac2(1,3);
 	Fraction frac3;
 
-	frac3 = frac1.Divide(frac2);
+	frac3 = frac1.Subtract(frac2);
 	cout << frac3;
 
 }
