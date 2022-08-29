@@ -13,17 +13,16 @@ public:
 	Fraction();
 	Fraction(int nominator,int denominator);
 
-	Fraction Add(const Fraction& other) const;
-	Fraction Subtract(const Fraction& other) const;
-	Fraction Multiply(const Fraction& other) const;
-	Fraction Divide(const Fraction& other) const;
+	Fraction operator+(const Fraction& other) const;
+	Fraction operator-(const Fraction& other) const;
+	Fraction operator*(const Fraction& other) const;
+	Fraction operator/(const Fraction& other) const;
 
-	friend ostream& operator<<(ostream& os, const Fraction& f);
+	friend ostream& operator<<(ostream& , const Fraction& f);
 	Fraction operator=(const Fraction& other);
 
 	inline int GetNumerator(){ return mNumerator;}
 	inline int GetDenominator(){ return mDenominator;}
-
 
 private:
 

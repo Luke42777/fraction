@@ -9,7 +9,7 @@ int main(){
 	Fraction frac2 = Fraction::sThird;
 	Fraction frac3;
 
-	frac3 = frac1.Subtract(frac2);
+	frac3 = frac1 + frac2;
 	cout << frac3;
 
 }

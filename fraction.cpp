@@ -14,7 +14,7 @@ Fraction::Fraction(int nom,int denom){
 
 Fraction::Fraction():Fraction(0,1){}
 
-Fraction Fraction::Add(const Fraction& other) const{
+Fraction Fraction::operator+(const Fraction& other) const{
 	//reducing to a common denominator for calculation
 	int commonDenominator = this->mDenominator * other.mDenominator;
 	//defining two Fraction objects ( as we don't want to change data)
@@ -25,21 +25,21 @@ Fraction Fraction::Add(const Fraction& other) const{
 	second = Fraction(other.mNumerator * (commonDenominator / other.mDenominator),commonDenominator);
 	return result.Simplify(Fraction(first.mNumerator + second.mNumerator,commonDenominator));
 }
-Fraction Fraction::Subtract(const Fraction& other) const{
+Fraction Fraction::operator-(const Fraction& other) const{
 	//reducing to a common denominator for calculation
-		int commonDenominator = this->mDenominator * other.mDenominator;
+	int commonDenominator = this->mDenominator * other.mDenominator;
 		//defining two Fraction objects ( as we don't want to change data)
-		Fraction first;
-		Fraction second;
-		Fraction result;
-		first = Fraction(this->mNumerator * (commonDenominator / this->mDenominator),commonDenominator);
-		second = Fraction(other.mNumerator * (commonDenominator / other.mDenominator),commonDenominator);
-		return result.Simplify(Fraction(first.mNumerator - second.mNumerator,commonDenominator));
+	Fraction first;
+	Fraction second;
+	Fraction result;
+	first = Fraction(this->mNumerator * (commonDenominator / this->mDenominator),commonDenominator);
+	second = Fraction(other.mNumerator * (commonDenominator / other.mDenominator),commonDenominator);
+	return result.Simplify(Fraction(first.mNumerator - second.mNumerator,commonDenominator));
 }
-Fraction Fraction::Multiply(const Fraction& other) const{
+Fraction Fraction::operator*(const Fraction& other) const{
 	return Fraction(this->mNumerator * other.mNumerator, this->mDenominator * other.mDenominator );
 }
-Fraction Fraction::Divide(const Fraction& other) const{
+Fraction Fraction::operator/(const Fraction& other) const{
 	Fraction result;
 	return result.Simplify(Fraction(this->mNumerator * other.mDenominator, this->mDenominator * other.mNumerator ));
 }
